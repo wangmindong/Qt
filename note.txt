@@ -1,0 +1,1 @@
+1.在Qt中集成Qt的类并且重载事件（paintEvent、timerEvent、鼠标事件等）的时候，务必要调用一下父类的该函数来使用父类的功能，否则，可能有功能缺失：比如，使用QTreeWidget的时候如果重载了MousePressEvent，这时候如果不调用QTreeWidget::MousePressEvent,那么这时候QTreeWidgetItem的check状态无法使用。再比如，如果重写了QTreeWidget的TimerEvent，如果不调用QTreeWidget::TimerEvent,那么这时候拖动tree的headView来改变列宽的时候会不起作用（撒手之后才会对齐，不是实时的）。
